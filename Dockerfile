@@ -1,5 +1,5 @@
-FROM alpine:3.20.2
-ARG ALIYUN_VERSION=3.0.216
+FROM alpine:3.19.1
+ARG ALIYUN_VERSION=3.0.206
 RUN apk update && apk add --no-cache bash
 RUN wget https://aliyuncli.alicdn.com/aliyun-cli-linux-${ALIYUN_VERSION}-amd64.tgz && \
     tar -xvzf aliyun-cli-linux-${ALIYUN_VERSION}-amd64.tgz && \
