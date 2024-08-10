@@ -1,2 +1,4 @@
-1. Light weight alpine based docker image with latest aliyun cli package.
-2. Non root user, default user is `appuser`.
+- Light weight alpine based docker image with latest aliyun cli package.
+- Non root user, default user is `appuser`.
+- Image available on dockerhub, follow :point_right: [`devbyteops/aliyun-cli`](https://hub.docker.com/r/devbyteops/aliyun-cli).
+- Support only `amd64`.
