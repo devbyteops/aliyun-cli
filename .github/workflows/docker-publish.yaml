@@ -43,7 +43,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: Dockerfile-amd
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           # tags: ${{ steps.metadata.outputs.tags }}
