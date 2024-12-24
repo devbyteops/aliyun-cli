@@ -32,7 +32,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-actions@0.28.0
         with:
-          image-ref: 'docker.io/${{ github.repository }}:0.0.3' # change version
+          image-ref: 'docker.io/${{ github.repository }}:0.0.3'   # change version
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL.HIGH'
@@ -43,4 +43,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ github.repository }}:${{ IMG_VERSION }}
+          tags: '${{ github.repository }}:0.0.3'  # change version
