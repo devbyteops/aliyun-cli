@@ -1,0 +1,16 @@
+FROM alpine:3.21.0
+
+LABEL author="Taruf Khan <https://github.com/devbyteops>"
+LABEL description="Alpine based dockerfile for aliyun cli"
+MAINTAINER "Taruf Khan <tarufkhan@gmail.com>"
+
+ARG ALIYUN_VERSION=3.0.240
+RUN apk update && apk add --no-cache bash
+RUN wget https://aliyuncli.alicdn.com/aliyun-cli-linux-${ALIYUN_VERSION}-amd64.tgz && \
+    tar -xvzf aliyun-cli-linux-${ALIYUN_VERSION}-amd64.tgz && \
+    rm aliyun-cli-linux-${ALIYUN_VERSION}-amd64.tgz && \
+    mv aliyun /usr/local/bin/
+# As we are using Alpine Linux, following command will create a separate symbolic link to lib64 dynamic libraries.
+RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+
+ENTRYPOINT ["aliyun", "version"]
