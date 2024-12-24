@@ -34,11 +34,13 @@ jobs:
         with:
           image-ref: 'docker.io/${{ github.repository }}:${{ env.IMG_VERSION }}'
           format: 'table'
+        env:
+          TRIVY_DB_REPOSITORY=public.ecr.aws/aquasecurity/trivy-db,aquasec/trivy-db,ghcr.io/aquasecurity/trivy-db
 
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
-          platforms: linux/amd64
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: '${{ github.repository }}:${{ env.IMG_VERSION }}'  # change version
+          platforms: linux/amd64, linux/arm64
+          push: true
+          tags: '${{ github.repository }}:${{ env.IMG_VERSION }}'
