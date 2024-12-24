@@ -34,7 +34,7 @@ jobs:
           image-ref: 'docker.io/${{ github.repository }}:0.0.3'   # change version
           format: 'table'
           exit-code: '1'
-          severity: 'CRITICAL.HIGH'
+          severity: 'CRITICAL,HIGH'
 
       - name: Build and push
         uses: docker/build-push-action@v5
