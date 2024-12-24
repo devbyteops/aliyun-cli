@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMG_NAME: ${{ github.repository }}
-      IMG_VERSION: "0.0.3"
+      IMG_VERSION: 0.0.3
     steps:
       - name: Checkout
         uses: actions/checkout@v3
