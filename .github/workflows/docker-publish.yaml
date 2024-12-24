@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMG_NAME: ${{ github.repository }}
-      IMG_VERSION: 0.0.3
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,7 +26,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build docker image
-        run: docker build -t docker.io/${{ github.repository }}:${{ IMG_VERSION }}
+        run: docker build -t docker.io/${{ github.repository }}:0.0.3   # change version
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-actions@0.28.0
