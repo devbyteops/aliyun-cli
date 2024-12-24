@@ -2,8 +2,6 @@ name: Docker
 on:
   push:
     branches: ["master"]
-env:  
-  IMG_VERSION: 0.0.3
 
 jobs:
   build:
@@ -11,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMG_NAME: ${{ github.repository }}
+      IMG_VERSION: 0.0.3
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -32,6 +31,8 @@ jobs:
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-actions@0.28.0
+        env:
+          IMG_VERSION: 0.0.3
         with:
           image-ref: 'docker.io/${{ github.repository }}:${{ IMG_VERSION }}'
           format: 'table'
