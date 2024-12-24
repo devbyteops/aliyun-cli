@@ -31,10 +31,8 @@ jobs:
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-actions@0.28.0
-        env:
-          IMG_VERSION: 0.0.3
         with:
-          image-ref: 'docker.io/${{ github.repository }}:${{ IMG_VERSION }}'
+          image-ref: 'docker.io/${{ github.repository }}:0.0.3' # change version
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL.HIGH'
