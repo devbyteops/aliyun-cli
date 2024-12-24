@@ -35,7 +35,7 @@ jobs:
           image-ref: 'docker.io/${{ github.repository }}:${{ env.IMG_VERSION }}'
           format: 'table'
         env:
-          TRIVY_DB_REPOSITORY=public.ecr.aws/aquasecurity/trivy-db,aquasec/trivy-db,ghcr.io/aquasecurity/trivy-db
+          TRIVY_DB_REPOSITORY: 'public.ecr.aws/aquasecurity/trivy-db,aquasec/trivy-db,ghcr.io/aquasecurity/trivy-db'
 
       - name: Build and push
         uses: docker/build-push-action@v5
